@@ -761,7 +761,39 @@ if secureMode and not customAssetId then
 	secureNotify("default_asset", "Secure Mode", "You are using the default Rowe asset ID. Set RAYFIELD_ASSET_ID to a custom upload to avoid detection.")
 end
 
+local minSize = Vector2.new(1024, 768)
+local useMobileSizing
+
+if Rowe.AbsoluteSize.X < minSize.X and Rowe.AbsoluteSize.Y < minSize.Y then
+	useMobileSizing = true
+end
+
+local useMobilePrompt = false
+if UserInputService.TouchEnabled then
+	useMobilePrompt = true
+end
+
+
+-- Object Variables
+
+local Main = Rowe.Main
+local MPrompt = Rowe:FindFirstChild('Prompt')
+local Topbar = Main.Topbar
+local Elements = Main.Elements
+local LoadingFrame = Main.LoadingFrame
+local TabList = Main.TabList
+local dragBar = Rowe:FindFirstChild('Drag')
+local dragInteract = dragBar and dragBar.Interact or nil
+local dragBarCosmetic = dragBar and dragBar.Drag or nil
+
+local dragOffset = 255
+local dragOffsetMobile = 150
+
+Rowe.DisplayOrder = 100
+LoadingFrame.Version.Text = Release
+
 do
+	-- Custom Assets
 	local AssetPath = RoweFolder.."/Assets"
 	local AssetBaseURL = "https://github.com/SiriusSoftwareLtd/Rowe/blob/main/assets/"
 
@@ -865,38 +897,7 @@ do
 	Rowe.Notifications.Template.Shadow.Image = customAssets[tostring(3523728077)] or "rbxassetid://3523728077"
 	Rowe.Loading.Banner.Image = customAssets[tostring(111263549366178)] or "rbxassetid://111263549366178"
 
-end -- custom asset block
-
-local minSize = Vector2.new(1024, 768)
-local useMobileSizing
-
-if Rowe.AbsoluteSize.X < minSize.X and Rowe.AbsoluteSize.Y < minSize.Y then
-	useMobileSizing = true
 end
-
-local useMobilePrompt = false
-if UserInputService.TouchEnabled then
-	useMobilePrompt = true
-end
-
-
--- Object Variables
-
-local Main = Rowe.Main
-local MPrompt = Rowe:FindFirstChild('Prompt')
-local Topbar = Main.Topbar
-local Elements = Main.Elements
-local LoadingFrame = Main.LoadingFrame
-local TabList = Main.TabList
-local dragBar = Rowe:FindFirstChild('Drag')
-local dragInteract = dragBar and dragBar.Interact or nil
-local dragBarCosmetic = dragBar and dragBar.Drag or nil
-
-local dragOffset = 255
-local dragOffsetMobile = 150
-
-Rowe.DisplayOrder = 100
-LoadingFrame.Version.Text = Release
 
 -- Thanks to Latte Softworks for the Lucide integration for Roblox
 local Icons = useStudio and require(script.Parent.icons) or loadWithTimeout('https://raw.githubusercontent.com/SiriusSoftwareLtd/Rowe/refs/heads/main/icons.lua')
