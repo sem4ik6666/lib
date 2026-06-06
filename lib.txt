@@ -699,7 +699,8 @@ local RoweLibrary = {
 -- Interface Management
 
 local RoweAssetId = customAssetId or 10804731440
-local Rowe = useStudio and script.Parent:FindFirstChild('Rowe') or game:GetObjects("rbxassetid://"..RoweAssetId)[1]
+local Rowe = useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://"..RoweAssetId)[1]
+Rowe.Name = "Rowe"
 local buildAttempts = 0
 local correctBuild = false
 local warned
@@ -840,29 +841,29 @@ do
 	end
 
 
-	Rowe.Main.Shadow.Image.Image = customAssets[tostring(5587865193)]
-	Rowe.Main.Topbar.Hide.Image = customAssets[tostring(10137832201)]
-	Rowe.Main.Topbar.ChangeSize.Image = customAssets[tostring(10137941941)]
-	Rowe.Main.Topbar.Settings.Image = customAssets[tostring(80503127983237)]
-	Rowe.Main.Topbar.Icon.Image = customAssets[tostring(78137979054938)]
-	Rowe.Main.Topbar.Search.Image = customAssets["IconMagnifyingGlass2"]
+	Rowe.Main.Shadow.Image.Image = customAssets[tostring(5587865193)] or "rbxassetid://5587865193"
+	Rowe.Main.Topbar.Hide.Image = customAssets[tostring(10137832201)] or "rbxassetid://10137832201"
+	Rowe.Main.Topbar.ChangeSize.Image = customAssets[tostring(10137941941)] or "rbxassetid://10137941941"
+	Rowe.Main.Topbar.Settings.Image = customAssets[tostring(80503127983237)] or "rbxassetid://80503127983237"
+	Rowe.Main.Topbar.Icon.Image = customAssets[tostring(78137979054938)] or "rbxassetid://78137979054938"
+	Rowe.Main.Topbar.Search.Image = customAssets["IconMagnifyingGlass2"] or "rbxassetid://18458939117"
 	Rowe.Main.Topbar.Search.ImageRectOffset = Vector2.new(0, 0)
 	Rowe.Main.Topbar.Search.ImageRectSize = Vector2.new(0, 0)
-	Rowe.Main.Elements.Template.Toggle.Switch.Shadow.Image = customAssets[tostring(3602733521)]
-	Rowe.Main.Elements.Template.Slider.Main.Shadow.Image = customAssets[tostring(3602733521)]
-	Rowe.Main.Elements.Template.Dropdown.Toggle.Image = customAssets["IconChevronTopMedium"]
+	Rowe.Main.Elements.Template.Toggle.Switch.Shadow.Image = customAssets[tostring(3602733521)] or "rbxassetid://3602733521"
+	Rowe.Main.Elements.Template.Slider.Main.Shadow.Image = customAssets[tostring(3602733521)] or "rbxassetid://3602733521"
+	Rowe.Main.Elements.Template.Dropdown.Toggle.Image = customAssets["IconChevronTopMedium"] or "rbxassetid://4483362458"
 	Rowe.Main.Elements.Template.Dropdown.Toggle.ImageRectOffset = Vector2.new(0, 0)
 	Rowe.Main.Elements.Template.Dropdown.Toggle.ImageRectSize = Vector2.new(0, 0)
-	Rowe.Main.Elements.Template.Label.Icon.Image = customAssets[tostring(11745872910)]
-	Rowe.Main.Elements.Template.ColorPicker.CPBackground.MainCP.Image = customAssets[tostring(11413591840)]
-	Rowe.Main.Elements.Template.ColorPicker.CPBackground.MainCP.MainPoint.Image = customAssets[tostring(3259050989)]
-	Rowe.Main.Elements.Template.ColorPicker.ColorSlider.SliderPoint.Image = customAssets[tostring(3259050989)]
-	Rowe.Main.TabList.Template.Image.Image = customAssets[tostring(4483362458)]
-	Rowe.Main.Search.Search.Image = customAssets[tostring(18458939117)]
-	Rowe.Main.Search.Shadow.Image = customAssets[tostring(5587865193)]
-	Rowe.Notifications.Template.Icon.Image = customAssets[tostring(77891951053543)]
-	Rowe.Notifications.Template.Shadow.Image = customAssets[tostring(3523728077)]
-	Rowe.Loading.Banner.Image = customAssets[tostring(111263549366178)]
+	Rowe.Main.Elements.Template.Label.Icon.Image = customAssets[tostring(11745872910)] or "rbxassetid://11745872910"
+	Rowe.Main.Elements.Template.ColorPicker.CPBackground.MainCP.Image = customAssets[tostring(11413591840)] or "rbxassetid://11413591840"
+	Rowe.Main.Elements.Template.ColorPicker.CPBackground.MainCP.MainPoint.Image = customAssets[tostring(3259050989)] or "rbxassetid://3259050989"
+	Rowe.Main.Elements.Template.ColorPicker.ColorSlider.SliderPoint.Image = customAssets[tostring(3259050989)] or "rbxassetid://3259050989"
+	Rowe.Main.TabList.Template.Image.Image = customAssets[tostring(4483362458)] or "rbxassetid://4483362458"
+	Rowe.Main.Search.Search.Image = customAssets[tostring(18458939117)] or "rbxassetid://18458939117"
+	Rowe.Main.Search.Shadow.Image = customAssets[tostring(5587865193)] or "rbxassetid://5587865193"
+	Rowe.Notifications.Template.Icon.Image = customAssets[tostring(77891951053543)] or "rbxassetid://77891951053543"
+	Rowe.Notifications.Template.Shadow.Image = customAssets[tostring(3523728077)] or "rbxassetid://3523728077"
+	Rowe.Loading.Banner.Image = customAssets[tostring(111263549366178)] or "rbxassetid://111263549366178"
 
 end -- custom asset block
 
