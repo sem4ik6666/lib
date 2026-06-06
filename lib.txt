@@ -876,6 +876,7 @@ do
 	Rowe.Main.Shadow.Image.Image = customAssets[tostring(5587865193)] or "rbxassetid://5587865193"
 	Rowe.Main.Topbar.Hide.Image = customAssets[tostring(10137832201)] or "rbxassetid://10137832201"
 	Rowe.Main.Topbar.ChangeSize.Image = customAssets[tostring(10137941941)] or "rbxassetid://10137941941"
+	Rowe.Main.Topbar.ChangeSize.Visible = true
 	Rowe.Main.Topbar.Settings.Image = customAssets[tostring(80503127983237)] or "rbxassetid://80503127983237"
 	Rowe.Main.Topbar.Icon.Image = customAssets[tostring(78137979054938)] or "rbxassetid://78137979054938"
 	Rowe.Main.Topbar.Search.Image = customAssets["IconMagnifyingGlass2"] or "rbxassetid://18458939117"
@@ -1523,6 +1524,8 @@ local function Unhide()
 	for _, TopbarButton in ipairs(Topbar:GetChildren()) do
 		if TopbarButton.ClassName == "ImageButton" then
 			if TopbarButton.Name == 'Icon' then
+				TweenService:Create(TopbarButton, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
+			elseif TopbarButton.Name == 'ChangeSize' then
 				TweenService:Create(TopbarButton, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
 			else
 				TweenService:Create(TopbarButton, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {ImageTransparency = 0.8}):Play()
