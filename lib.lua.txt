@@ -699,7 +699,7 @@ local RoweLibrary = {
 -- Interface Management
 
 local RoweAssetId = customAssetId or 10804731440
-local Rowe = useStudio and script.Parent:FindFirstChild('Rayfield') or game:GetObjects("rbxassetid://"..RoweAssetId)[1]
+local Rowe = useStudio and script.Parent:FindFirstChild('Rowe') or game:GetObjects("rbxassetid://"..RoweAssetId)[1]
 Rowe.Name = "Rowe"
 local buildAttempts = 0
 local correctBuild = false
@@ -819,7 +819,7 @@ do
 	}
 
 	for id, _ in assetFiles do
-		customAssets[tostring(id)] = ""
+		customAssets[tostring(id)] = "rbxassetid://"..id
 	end
 
 	local hasCustomAsset = type(getcustomasset) == "function"
