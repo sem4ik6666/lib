@@ -1543,7 +1543,7 @@ end
 
 local function Minimise()
 	Debounce = true
-	Topbar.ChangeSize.Image = customAssets[tostring(11036884234)]
+	Topbar.ChangeSize.Image = customAssets[tostring(10137941941)] or "rbxassetid://10137941941"
 
 	Topbar.UIStroke.Color = SelectedTheme.ElementStroke
 
