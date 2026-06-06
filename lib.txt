@@ -792,8 +792,8 @@ local dragOffsetMobile = 150
 Rowe.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
 
+-- Custom Assets Initialization
 do
-	-- Custom Assets
 	local AssetPath = RoweFolder.."/Assets"
 	local AssetBaseURL = "https://github.com/SiriusSoftwareLtd/Rowe/blob/main/assets/"
 
@@ -875,9 +875,13 @@ do
 
 	Rowe.Main.Shadow.Image.Image = customAssets[tostring(5587865193)] or "rbxassetid://5587865193"
 	Rowe.Main.Topbar.Hide.Image = customAssets[tostring(10137832201)] or "rbxassetid://10137832201"
-	Rowe.Main.Topbar.ChangeSize.Image = customAssets[tostring(10137941941)] or "rbxassetid://10137941941"
-	Rowe.Main.Topbar.ChangeSize.Visible = true
-	Rowe.Main.Topbar.Settings.Image = customAssets[tostring(80503127983237)] or "rbxassetid://80503127983237"
+	if Topbar:FindFirstChild('ChangeSize') then
+		Rowe.Main.Topbar.ChangeSize.Image = customAssets[tostring(10137941941)] or "rbxassetid://10137941941"
+		Rowe.Main.Topbar.ChangeSize.Visible = true
+	end
+	if Topbar:FindFirstChild('Settings') then
+		Rowe.Main.Topbar.Settings.Image = customAssets[tostring(80503127983237)] or "rbxassetid://80503127983237"
+	end
 	Rowe.Main.Topbar.Icon.Image = customAssets[tostring(78137979054938)] or "rbxassetid://78137979054938"
 	Rowe.Main.Topbar.Search.Image = customAssets["IconMagnifyingGlass2"] or "rbxassetid://18458939117"
 	Rowe.Main.Topbar.Search.ImageRectOffset = Vector2.new(0, 0)
@@ -897,11 +901,11 @@ do
 	Rowe.Notifications.Template.Icon.Image = customAssets[tostring(77891951053543)] or "rbxassetid://77891951053543"
 	Rowe.Notifications.Template.Shadow.Image = customAssets[tostring(3523728077)] or "rbxassetid://3523728077"
 	Rowe.Loading.Banner.Image = customAssets[tostring(111263549366178)] or "rbxassetid://111263549366178"
-
 end
 
 -- Thanks to Latte Softworks for the Lucide integration for Roblox
 local Icons = useStudio and require(script.Parent.icons) or loadWithTimeout('https://raw.githubusercontent.com/SiriusSoftwareLtd/Rowe/refs/heads/main/icons.lua')
+
 -- Variables
 
 local CFileName = nil
