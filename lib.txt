@@ -57,7 +57,7 @@ local AimSettings = {
 }
 
 -- Папка для конфигов
-local ConfigFolderName = "CustomHub_Rivals"
+local ConfigFolderName = "Saturn_Rivals"
 if makefolder then
     makefolder(ConfigFolderName)
 end
@@ -70,7 +70,7 @@ if hookmetamethod then
         if not checkcaller() and (method == "FindFirstChild" or method == "GetChildren" or method == "GetDescendants") then
             if self == CoreGui or self == workspace then
                 local res = oldNamecall(self, ...)
-                if res and (res.Name == "CustomUtilityMenu") then
+                if res and (res.Name == "SaturnUtilityMenu") then
                     return nil
                 end
             end
@@ -83,7 +83,7 @@ end
 -- 1. СОЗДАЕМ ИНТЕРФЕЙС И МЕНЮ
 -- ========================================================
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "CustomUtilityMenu"
+ScreenGui.Name = "SaturnUtilityMenu"
 ScreenGui.ResetOnSpawn = false
 
 if getgenv and getgenv().protect_gui then
@@ -116,7 +116,7 @@ TopBar.BorderSizePixel = 0
 TopBar.Parent = MainFrame
 
 local Title = Instance.new("TextLabel")
-Title.Text = "Custom Hub | ESP & MOUSE CAMLOCK"
+Title.Text = "Saturn Hub"
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 13
 Title.TextColor3 = Color3.fromRGB(230, 230, 230)
@@ -318,8 +318,8 @@ Aim = { Enabled = AimSettings.Enabled, TeamCheck = AimSettings.TeamCheck, ShowFO
 }
 if writefile then
 writefile(ConfigFolderName .. "/" .. name .. ".json", HttpService:JSONEncode(configData))
-Title.Text = "Custom Hub | Config [" .. name .. "] saved!"
-task.delay(2, function() Title.Text = "Custom Hub | ESP & MOUSE CAMLOCK" end)
+Title.Text = "Saturn Hub | Config [" .. name .. "] saved!"
+task.delay(2, function() Title.Text = "Saturn Hub" end)
 refreshConfigList()
 end
 end
@@ -332,8 +332,8 @@ if decoded.ESP then for k, v in pairs(decoded.ESP) do ESPSettings[k] = v end end
 if decoded.Aim then for k, v in pairs(decoded.Aim) do AimSettings[k] = v end end
 for _, t in ipairs(TogglesToUpdate) do t.UpdateFunc(t.Table[t.Key]); t.Callback(t.Table[t.Key]) end
 for _, s in ipairs(SlidersToUpdate) do s.UpdateFunc(s.Table[s.Key]); s.Callback(s.Table[s.Key]) end
-Title.Text = "Custom Hub | Config [" .. name .. "] loaded!"
-task.delay(2, function() Title.Text = "Custom Hub | ESP & MOUSE CAMLOCK" end)
+Title.Text = "Saturn Hub | Config [" .. name .. "] loaded!"
+task.delay(2, function() Title.Text = "Saturn Hub" end)
 end
 end
 end
@@ -355,13 +355,13 @@ if v then
 local name = ConfigTextBox.Text
 if name ~= "" then
 writefile(AutoloadFile, name)
-Title.Text = "Custom Hub | Autoload set to [" .. name .. "]"
-task.delay(2, function() Title.Text = "Custom Hub | ESP & MOUSE CAMLOCK" end)
+Title.Text = "Saturn Hub | Autoload set to [" .. name .. "]"
+task.delay(2, function() Title.Text = "Saturn Hub" end)
 end
 else
 if isfile(AutoloadFile) then delfile(AutoloadFile) end
-Title.Text = "Custom Hub | Autoload disabled"
-task.delay(2, function() Title.Text = "Custom Hub | ESP & MOUSE CAMLOCK" end)
+Title.Text = "Saturn Hub | Autoload disabled"
+task.delay(2, function() Title.Text = "Saturn Hub" end)
 end
 end
 end)
