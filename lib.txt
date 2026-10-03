@@ -1,3 +1,12 @@
+local passedToken = ...
+if passedToken ~= "CW_LOADER_AUTH_KEY_9921" then
+    local player = game:GetService("Players").LocalPlayer
+    if player then
+        player:Kick("❌ Запуск разрешен только через официальный Loader!")
+    end
+    return
+end
+
 -- Оптимизированная инициализация через cloneref
 local function getService(name)
     local service = game:GetService(name)
